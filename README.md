@@ -1,5 +1,7 @@
 # Find Latest Tag
 
+[![Run tests](https://github.com/tdemin/find-latest-tag/actions/workflows/test.yml/badge.svg)](https://github.com/tdemin/find-latest-tag/actions/workflows/test.yml)
+
 GitHub Action to find latest tag of any Git repository available on the
 Internet.
 
