@@ -1,5 +1,5 @@
-name: "Find Latest Tag"
-description: "Find latest tag of any Git repository"
+name: "Find Latest Tag of Git repository"
+description: "Find latest tag of any Git repository on the Internet"
 inputs:
   repo:
     description: "Repo to check the latest tag for"
