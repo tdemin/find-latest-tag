@@ -1,0 +1,22 @@
+name: "Find Latest Tag"
+description: "Find latest tag of any Git repository"
+inputs:
+  repo:
+    description: "Repo to check the latest tag for"
+    required: true
+  tag:
+    description: "Regular expression to match tags against"
+    default: "" # empty regex matches all tags
+outputs:
+  tag:
+    description: "Latest tag matching the regular expression"
+    value: ${{ steps.flt.outputs.tag }}
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/find_latest_tag.sh '${{ inputs.repo }}' '${{ inputs.tag }}'
+      shell: bash
+      id: flt
+branding:
+  icon: tag
+  color: black
