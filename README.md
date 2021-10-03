@@ -11,11 +11,11 @@ Internet.
 steps:
   - uses: tdemin/find-latest-tag@v1
     with:
-      repository: https://github.com/tdemin/gmnhg.git
+      repo: https://github.com/tdemin/gmnhg.git
     # v0.4.0
   - uses: tdemin@find-latest-tag@v1
     with:
-      repository: https://github.com/golang/go.git
+      repo: https://github.com/golang/go.git
       tag: '^go1'
     # go1.17.1
 ```
@@ -24,7 +24,7 @@ steps:
 
 ### Inputs
 
-* `repository`: *required*, Git URI of a remote to check tags from.
+* `repo`: *required*, Git URI of a remote to check tags from.
 * `tag`: optional, regex to check tag names against (default `""`).
 
 Private repository authentication is currently not implemented, although you can
