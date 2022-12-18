@@ -24,4 +24,4 @@ if [ -z "${tag}" ]; then
     die "cannot find tag matching regex: ${2}"
 fi
 
-echo "::set-output name=tag::${tag}"
+echo "tag=${tag}" >> $GITHUB_OUTPUT
