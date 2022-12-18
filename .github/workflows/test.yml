@@ -12,17 +12,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test latest tag of sysget
-        id: sysget
+      - name: Test latest tag of the old helmfile repo
+        id: helmfile
         uses: ./
         with:
-          repo: https://codeberg.org/novaburst-dev/sysget.git
-      - name: Test latest tag of sysget (no v)
-        id: sysget-v
+          repo: https://github.com/roboll/helmfile.git
+      - name: Test latest tag of helmfile (with v, equivalent to just latest tag)
+        id: helmfile-v
         uses: ./
         with:
-          repo: https://codeberg.org/novaburst-dev/sysget.git
-          tag: '^[^v]'
+          repo: https://github.com/roboll/helmfile.git
+          tag: '^v'
       - name: Test last RC of Linux v4.15
         id: linux-415
         uses: ./
@@ -43,8 +43,8 @@ jobs:
           tag: '^go1\.12.[0-9]+$'
       - name: Test tags
         run: |
-          ./test.sh "${{ steps.sysget.outputs.tag }}" = "v2.3"
-          ./test.sh "${{ steps.sysget-v.outputs.tag }}" = "2.4.2"
+          ./test.sh "${{ steps.helmfile.outputs.tag }}" = "v0.144.0"
+          ./test.sh "${{ steps.helmfile-v.outputs.tag }}" = "v0.144.0"
           ./test.sh "${{ steps.linux-415.outputs.tag }}" = "v4.15-rc9" 
           ./test.sh "${{ steps.gmnhg-02.outputs.tag }}" = "v0.2.0"
           ./test.sh "${{ steps.go-112.outputs.tag }}" = "go1.12.17"
