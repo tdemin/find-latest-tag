@@ -16,7 +16,7 @@ all_tags="$(git ls-remote --tags --refs --exit-code --sort=-v:refname ${1} \
     | sed 's/refs\/tags\///')"
 
 tag="$(printf "%s\n" $all_tags \
-    | grep -E "${query}" \
+    | grep -oE "${query}" \
     | sort -V \
     | tail -1)"
 
